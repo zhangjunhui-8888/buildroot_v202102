@@ -1,0 +1,22 @@
+choice 
+	prompt "Target Architecture Variant"
+	default BR2_CHASE
+	help
+		Specific CPU variant to use
+
+config BR2_CHASE
+	bool "chase"
+
+endchoice
+
+config BR2_ARCH
+	default "gpt"
+
+config BR2_ENDIAN
+	default "LITTLE"
+
+config BR2_GCC_TARGET_ARCH
+	default "chip2"
+
+config BR2_READELF_ARCH_NAME
+	default "GPTX" if BR2_gpt
