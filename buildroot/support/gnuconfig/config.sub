@@ -1298,6 +1298,9 @@ case $basic_machine in
 	pmac | pmac-mpw)
 		basic_machine=powerpc-apple
 		;;
+	gpt | gpt-buildroot | polaris-gpt | polaris | chase-gpt | chase)
+		basic_machine=polaris-gpt
+		;;
 	*-unknown)
 		# Make sure to match an already-canonicalized machine name.
 		;;
