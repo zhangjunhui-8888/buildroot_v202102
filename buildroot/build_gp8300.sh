@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 SHELL_FILE=$(readlink -f $0)
 BUILDROOT_ROOT=$(dirname $SHELL_FILE)
 BUILD_DIR=$ROOTFS_ROOT/build
@@ -10,4 +13,5 @@ dir=${sub_dir%/*}
 #cd $BUILD_DIR"/"$BUILDROOT_DIR
 #sed -i "s#gpt_toolchain_path#$dir#g" ./configs/gpt_polaris_dvb_mini_tools_defconfig
 
-make -j8
+make
+echo "==========build success!============"

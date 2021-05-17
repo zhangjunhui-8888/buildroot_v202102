@@ -215,12 +215,12 @@ config BR2_LINUX_KERNEL_UIMAGE
 	depends on BR2_arc || BR2_arm || BR2_armeb || \
 		   BR2_powerpc || BR2_powerpc64 || BR2_powerpc64le || \
 		   BR2_sh || BR2_mips || BR2_mipsel || \
-		   BR2_mips64 || BR2_mips64el || BR2_xtensa
+		   BR2_mips64 || BR2_mips64el || BR2_xtensa || BR2_gpt
 	select BR2_PACKAGE_HOST_UBOOT_TOOLS
 
 config BR2_LINUX_KERNEL_APPENDED_UIMAGE
 	bool "uImage with appended DT"
-	depends on BR2_arm || BR2_armeb
+	depends on BR2_arm || BR2_armeb || BR2_gpt
 	select BR2_LINUX_KERNEL_DTS_SUPPORT
 	select BR2_LINUX_KERNEL_APPENDED_DTB
 	select BR2_PACKAGE_HOST_UBOOT_TOOLS
@@ -233,7 +233,7 @@ config BR2_LINUX_KERNEL_ZIMAGE
 	bool "zImage"
 	depends on BR2_arm || BR2_armeb || BR2_powerpc || \
 		   BR2_powerpc64 || BR2_powerpc64le || BR2_sparc || \
-		   BR2_sh || BR2_xtensa
+		   BR2_sh || BR2_xtensa || BR2_gpt
 
 config BR2_LINUX_KERNEL_ZIMAGE_EPAPR
 	bool "zImage.epapr"
@@ -241,7 +241,7 @@ config BR2_LINUX_KERNEL_ZIMAGE_EPAPR
 
 config BR2_LINUX_KERNEL_APPENDED_ZIMAGE
 	bool "zImage with appended DT"
-	depends on BR2_arm || BR2_armeb
+	depends on BR2_arm || BR2_armeb || BR2_gpt
 	select BR2_LINUX_KERNEL_DTS_SUPPORT
 	select BR2_LINUX_KERNEL_APPENDED_DTB
 
@@ -274,7 +274,7 @@ config BR2_LINUX_KERNEL_LINUX_BIN
 
 config BR2_LINUX_KERNEL_VMLINUX_BIN
 	bool "vmlinux.bin"
-	depends on BR2_mips || BR2_mipsel || BR2_sh
+	depends on BR2_mips || BR2_mipsel || BR2_sh || BR2_gpt
 
 config BR2_LINUX_KERNEL_VMLINUX
 	bool "vmlinux"
@@ -355,7 +355,7 @@ config BR2_LINUX_KERNEL_IMAGE_NAME
 
 config BR2_LINUX_KERNEL_UIMAGE_LOADADDR
 	string "load address (for 3.7+ multi-platform image)"
-	depends on BR2_arm || BR2_armeb
+	depends on BR2_arm || BR2_armeb || BR2_gpt
 	depends on BR2_LINUX_KERNEL_UIMAGE || BR2_LINUX_KERNEL_APPENDED_UIMAGE
 	help
 	  If your ARM system's Linux kernel is configured with the new
